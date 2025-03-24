@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Esfera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .circulo {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            border-radius: 50%;
+            position: relative;
+            margin: 20px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Cálculo da Esfera</h1>
+
+    <label for="raio">Raio da Esfera:</label>
+    <input type="num" id="raio" value="50" min="1">
+    <button onclick="calcular()">Calcular</button>
+
+    <h3>Resultados:</h3>
+    <p>Área do círculo: <span id="area"></span> cm²</p>
+    <p>Comprimento da circunferência: <span id="circunferencia"></span> cm</p>
+    <p>Volume da esfera: <span id="volume"></span> cm³</p>
+
+    <script>
+        function calcular() {
+            let r = document.getElementById("raio").value;
+            r = parseFloat(r);
+
+            if (r > 0) {
+                let circunferencia = 2 * Math.PI * r;
+                let area = Math.PI * Math.pow(r, 2);
+                let volume = (4 / 3) * Math.PI * Math.pow(r, 3);
+
+                document.getElementById("area").innerText = area.toFixed(2);
+                document.getElementById("circunferencia").innerText = circunferencia.toFixed(2);
+                document.getElementById("volume").innerText = volume.toFixed(2);
+            } else {
+                alert("ERRO");
+            }
+        }
+    </script>
+</body>
+</html>
